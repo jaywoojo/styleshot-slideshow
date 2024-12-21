@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+/* Wrapper for Slideshow and Buttons */
+.slideshow-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%; /* Match the width of the slideshow container */
+    height: 90vh; /* Match the height of the slideshow container */
+    margin: 0 auto;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    width: 90%; /* Adjust the width as needed */
+    height: 100%;
+    overflow: hidden; /* Hide excess slides */
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    position: relative;
+    background-color: #F4F4F4;
+    border: none; /* Remove border */
+    cursor: pointer;
+    padding: 20px; /* Increase padding for easier clickability */
+    font-size: 24px; /* Larger font size for better visibility */
+    color: #7A7A7A; /* White color for contrast */
+    z-index: 10; /* Ensure buttons appear above the slideshow content */
+    border-radius: 5%; /* Optional: Circular button shape */
+}
+
+/* Positioning */
+.prev {
+    margin-right: 0px; /* Add space between the button and the container */
+}
+
+.next {
+    margin-left: 0px; /* Add space between the button and the container */
+}
+
+/* Hover Effect */
+.prev:hover, .next:hover {
+    color: #343434;
+}
+
+/* Optional: Add icons instead of text */
+.prev::before {
+    content: "\276E"; /* Left arrow Unicode character */
+    font-size: 24px;
+}
+
+.next::before {
+    content: "\276F"; /* Right arrow Unicode character */
+    font-size: 24px;
+}
+
+/* Slideshow Box */
+.slideshow {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    overflow: hidden;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+    background: #F4F4F4;
+}
+
+/* Horizontal Scroll Container */
+.slides-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent vertical wrapping */
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+    height: 90%; /* Ensure full height minus space for indicators */
+}
+
+.slides-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome/Safari */
+}
+
+/* Individual Slides */
+.slide {
+    flex: 0 0 100%; /* Each slide takes full width */
+    scroll-snap-align: start; /* Align slides to the start when scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+    height: 100%; /* Ensure full height */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%; /* Use full height for images */
+    object-fit: contain; /* Ensure images are fully visible, not cropped */
+    border-radius: 10px;
+}
+
+/* Indicators Container - Adjusted to be outside the slideshow */
+/* .indicators-container {
+    position: absolute;
+    bottom: -30px;  Move indicators below the slideshow container 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+} */
+
+/* Indicators (Dots) */
+.indicators {
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.indicators-container {
+    position: absolute;
+    bottom: 10px; /* Adjust to move above the bottom edge of the slideshow */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Ensure it is above other elements */
+}
+
+/* Indicators (Dots) */
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    border-radius: 50%;
+    /**margin: 0 5px; */
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #fff;
+}
